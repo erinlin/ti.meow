@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Ti.Meow Sender</title>
+<style type="text/css" media="screen">
+	#html, body {
+	  top: 0px;
+	  right: 0px;
+	  bottom: 0px;
+	  left: 0px;
+	  width: 600px;
+	  height: 100%;
+	  margin: auto;
+	  font-family: Tahoma, sans-serif;
+ 	  position: relative;
+	}
+	h3{
+		font-size: 3em;
+		color: #999;
+	}
+	credit{
+		position:fixed; 
+		font-size: 0.6em;
+		color: #666;
+		margin-top:-50px; 
+		margin-right:-200px; 
+	}
+	textarea#tt {
+		width: 600px;
+		height: 400px;
+		border: 3px solid #cccccc;
+		padding: 5px;
+		font-size: 0.8em;
+	}
+	button{
+		width: 120px;
+		height: 30px;
+		font-size: 1.2em;
+	}
+</style>
+</head>
+<body>
+	<h3>Ti.Meow</h3>
+	<credit>
+		Titanium Mobile Simple Live Preview Module<br />
+	    <a href='https://github.com/erinlin' target="_blank">https://github.com/erinlin</a><br />
+		Your reuse is governed by the Creative Commons Attribution 3.0 License
+	</credit>
+	<textarea id="tt">(function(){
+	var win = Ti.UI.createWindow({
+		backgroundColor:'#ff7f00'
+	});
+	var label = Ti.UI.createLabel({
+		text: "Ti.Meow Demo", 
+		width: "auto", 
+		height: "auto",
+		color:'#fff',
+		font:{fontSize:'45dp',fontFamily:'Helvetica Neue'}
+	});
+	win.add(label);
+	return win;
+})()</textarea>
+	<br />
+	<button id="btn">Send</button>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	(function(){
+		var txt = $("#tt");
+		$("#btn").on("click", function(e){
+			var data = {
+				code: txt.val()
+			}
+			$.get("/update", data);
+			e.preventDefault();
+		});
+	})();
+</script>
+</body>
+</html>
