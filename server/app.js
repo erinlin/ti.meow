@@ -1,6 +1,6 @@
 var server,
     ip   = process.argv[2] || "127.0.0.1",
-    port = process.argv[3] || 1337,
+    port = process.argv[3] || 3000,
     http = require('http'),
     qs = require('querystring'),
     url = require('url'),
@@ -44,7 +44,7 @@ setInterval( function() {
 	var expiration = new Date().getTime() - 30000;
 	var res,
 		temp = [];
-	for (var i = requests.length-1; i>=0;i--) {
+	for (var i = requests.length; i-->0;) {
 		req = requests[i];
 		if( data ){
 			req.res.writeHead(200, {'Content-Type': 'text/plain'});

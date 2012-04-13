@@ -1,6 +1,6 @@
 #Ti.Meow
 ##### Version 0.5
-Titanium Mobile Simple Live Preview Module.
+Titanium Mobile Project Simple Live Preview Module.
 
 本專案參考自 [dbankier/TiShadow](https://github.com/dbankier/TiShadow) 。目前版本功能僅提供瀏覽器鍵入程式片段傳送至安裝 Ti.Meow Module 的 [Titanium Mobile](http://www.appcelerator.com/) 專案之 Android 或 iOS 手執裝置做即時預覽。
 
@@ -12,7 +12,7 @@ Titanium Mobile Simple Live Preview Module.
 Start the server:
 
     node app.js [ip] [port]
-	//default 127.0.0.1 1337
+	//default 127.0.0.1 3000
 
 
 ## Test Ti.Meow Project
@@ -23,7 +23,7 @@ Start a new Titanium Mobile project and then place the ti.meow.js file in Resour
 ## Code Snippets Via Webpage
 Enter the following address in a browser window:
 
-    http://localhost:1337/
+    http://localhost:3000/
 
 Wrap your code in an anonymous function returns a view object that contains `open` and `close` functions.
 

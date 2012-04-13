@@ -41,7 +41,7 @@ exports.start = function() {
 	win.add( ipInput );
 	
 	var portInput = Ti.UI.createTextField({
-		value: Ti.App.Properties.getString('port', "1337"),
+		value: Ti.App.Properties.getString('port', "3000"),
 		width: "200dp", 
 		height: "45dp",
 		borderStyle : Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
