@@ -1,18 +1,34 @@
-Welcome to your Appcelerator Titanium Mobile Project
+#Ti.Meow
+##### Version 0.5
+Titanium Mobile Simple Live Preview Module.
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
+本專案參考自 [dbankier/TiShadow](https://github.com/dbankier/TiShadow) 。目前版本功能僅提供瀏覽器鍵入程式片段傳送至安裝 Ti.Meow Module 的 [Titanium Mobile](http://www.appcelerator.com/) 專案之 Android 或 iOS 手執裝置做即時預覽。
+
+製作原則僅為學習使用 Node.js，在不採用任何外掛模組下，也撇除因 Android 瀏覽器版本不支援 HTML5 WebSocket，故採用 long pulling 方式進行即時更新。
+
+##Ti.Meow server
+* [node.js](http://nodejs.org/)
+
+Start the server:
+
+    node app.js [ip] [port]
+	//default 127.0.0.1 1337
 
 
+## Test Ti.Meow Project
+Start a new Titanium Mobile project and then place the ti.meow.js file in Resources folder. Just require the  ti.meow commonJS module into app.js like below:
+	
+	var timeow = require("ti.meow").start();
+	
+## Code Snippets Via Webpage
+Enter the following address in a browser window:
 
-----------------------------------
-Stuff our legal folk make us say:
+    http://localhost:1337/
 
-Appcelerator, Appcelerator Titanium and associated marks and logos are 
-trademarks of Appcelerator, Inc. 
+Wrap your code in an anonymous function returns a view object that contains `open` and `close` functions.
 
-Titanium is Copyright (c) 2009-2010 by Appcelerator, Inc. All Rights Reserved.
-
-Titanium is licensed under the Apache Public License (Version 2). Please
-see the LICENSE file for the full license.
-
+	(function() {
+      var win = Ti.UI.createWindow();
+	
+      return win;
+    }());

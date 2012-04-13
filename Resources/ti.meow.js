@@ -69,7 +69,6 @@ exports.start = function() {
 			win.touchEnabled = false;
 			win.opacity = .7;
 		}
-		sync();
 	};
 
 	btn.addEventListener("click", function(){
@@ -77,6 +76,7 @@ exports.start = function() {
 		Ti.App.Properties.setString('port', portInput.value );
 		if( isAndroid ) Ti.UI.Android.hideSoftKeyboard();
 		connecting();
+		sync();
 	} );
 	
 	win.open();
@@ -89,10 +89,11 @@ exports.start = function() {
 	
 	function sync() {
 		var xhr = Ti.Network.createHTTPClient();
-		xhr.setTimeout(60000);
+		xhr.setTimeout(40000);
 		xhr.onload = function() {
 			xhr.abort();
 			var result = JSON.parse(this.responseText);
+			if( !result ) this.onerror();
 			Ti.API.info(this.responseText);
 			try {
 				if( result.state ){
