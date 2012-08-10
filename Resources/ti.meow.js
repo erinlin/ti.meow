@@ -133,6 +133,7 @@ exports.start = function() {
 			}
 		}
 		xhr.open('GET', 'http://' + Ti.App.Properties.getString('ip') + ":" + Ti.App.Properties.getString('port') + "/sync?os=" + Ti.Platform.osname);
-		xhr.send();
+		//xhr.open('GET', 'http://timeow.herokuapp.com/sync?os=' + Ti.Platform.osname);
+		xhr.send(); 
 	}
 }
